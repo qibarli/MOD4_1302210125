@@ -8,11 +8,17 @@ namespace MOD4_1302210125
         {
             KodeBuah table_Kode_Buah = new KodeBuah();
             Console.WriteLine("Nama Buah Aprikot");
-            table_Kode_Buah.getKodeBuah("B00");
+            table_Kode_Buah.getKodeBuah("G00 ");
             Console.WriteLine("\n");
             Console.WriteLine("Nama Kode Buah ");
             table_Kode_Buah.getallKodeBuah();
             Console.WriteLine("\n");
+
+            Console.WriteLine("MOVE STATUS");
+
+            karaktergame karakter = new karaktergame();
+
+            karakter.key();
         }
     }
     class KodeBuah
@@ -50,5 +56,44 @@ namespace MOD4_1302210125
             }
         }
 
+    }
+
+    class karaktergame
+    {
+        enum State { Terbang, Jongkok, Berdiri};
+
+        public void key()
+        {
+            State state = State.Terbang;
+
+            String[] karakter_status = { "Terbang", "Jongkok", "Berdiri" };
+            do
+            {
+                Console.WriteLine("karakter " + karakter_status[(int)state]);
+                Console.Write("Keyword : ");
+                String command = Console.ReadLine();
+                switch (state)
+                {
+                    case State.Terbang:
+                        if (command == "TERBANGGGGG")
+                        {
+                            state = State.Jongkok;
+                        }
+                        break;
+                    case State.Jongkok:
+                        if (command == "ENCOOOK")
+                        {
+                            state = State.Berdiri;
+                        }
+                        break;
+                    case State.Berdiri:
+                        if (command == "Lets GOOO")
+                        {
+                            state = State.Terbang;
+                        }
+                        break;
+                }
+            } while (state != State.Terbang);
+        }
     }
 }
