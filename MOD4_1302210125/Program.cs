@@ -44,7 +44,7 @@ namespace MOD4_1302210125
 
         public void getallKodeBuah()
         {
-            foreach (KeyValuePair<string, int> i in dic_Kode_Buah)
+            foreach (KeyValuePair<string, string> i in dic_Kode_Buah)
             {
                 Console.WriteLine("- " + i.Key + " : " + i.Value);
             }
